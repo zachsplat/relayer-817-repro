@@ -1,0 +1,15 @@
+19:10:58 === repro #817 start; relayer openzeppelin/openzeppelin-relayer:v1.8.0 behind lagging proxy
+19:10:58 anvil block 15, sender nonce 0
+19:10:58 submit -> 200 {"success": true, "data": {"id": "5e449683-947f-4298-b195-0fa0b03c905e", "hash": null, "status": "pending", "status_reason": null, "created_at": "2026-10-06T19:10:58.192296006+00:00", "sent_at": null, "confirmed_at": null, "gas_price": null
+19:10:58 relayer state t+0 s: status=pending hash= hashes=0 nonce=None reason=None
+19:10:58 proxy {"receipt_calls": 0, "receipt_hidden": 0, "receipt_passed": 0, "nonce_calls": 1, "send_raw": 0, "send_raw_errors": []}
+19:11:08 anvil: hash 0x3988c01bc3cc.. mined in block 16 with status 1 (t+10 s); on-chain nonce now 1
+19:11:08 relayer state t+10 s: status=submitted hash=0x3988c01bc3cc hashes=0 nonce=0 reason=None
+19:11:58 proxy {"receipt_calls": 5, "receipt_hidden": 5, "receipt_passed": 0, "nonce_calls": 1, "send_raw": 1, "send_raw_errors": []}
+19:12:58 proxy {"receipt_calls": 10, "receipt_hidden": 10, "receipt_passed": 0, "nonce_calls": 1, "send_raw": 1, "send_raw_errors": []}
+19:13:58 proxy {"receipt_calls": 15, "receipt_hidden": 15, "receipt_passed": 0, "nonce_calls": 1, "send_raw": 1, "send_raw_errors": []}
+19:14:08 relayer state t+190 s: status=failed hash=0x3988c01bc3cc hashes=0 nonce=0 reason=Nonce 0 consumed externally (on-chain nonce: 1). No matching transaction hash found on-chain.
+19:14:08 final relayer state ('failed', '0x3988c01bc3cc3979cfe025b2375a53db182c8bf89fe543bc13edf82f3f5c647c', [], 0, 'Nonce 0 consumed externally (on-chain nonce: 1). No matching transaction hash found on-chain.')
+19:14:08 final proxy {"receipt_calls": 17, "receipt_hidden": 17, "receipt_passed": 0, "nonce_calls": 3, "send_raw": 2, "send_raw_errors": ["nonce too low"]}
+19:14:08 === VERDICT: REPRODUCED: relayer status failed (reason: Nonce 0 consumed externally (on-chain nonce: 1). No matching transaction hash found on-chain.) while anvil has hash 0x3988c01bc3cc.. mined with status 1 at nonce 0
+19:14:43 === repro #817 start; relayer openzeppelin/openzeppelin-relayer:v1.8.0 behind lagging proxy

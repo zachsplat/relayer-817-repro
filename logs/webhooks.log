@@ -1,0 +1,3 @@
+{"event": "transaction_update", "status": "sent", "status_reason": null, "hash": "0x3988c01bc3cc3979cfe025b2375a53db182c8bf89fe543bc13edf82f3f5c647c"}
+{"event": "transaction_update", "status": "submitted", "status_reason": null, "hash": "0x3988c01bc3cc3979cfe025b2375a53db182c8bf89fe543bc13edf82f3f5c647c"}
+{"event": "transaction_update", "status": "failed", "status_reason": "Nonce 0 consumed externally (on-chain nonce: 1). No matching transaction hash found on-chain.", "hash": "0x3988c01bc3cc3979cfe025b2375a53db182c8bf89fe543bc13edf82f3f5c647c"}
