@@ -2,6 +2,8 @@
 
 A successfully mined transaction is finalised as `Failed` when `eth_getTransactionReceipt` transiently returns `null` while `eth_getTransactionCount` already shows the advanced nonce: https://github.com/OpenZeppelin/openzeppelin-relayer/issues/817
 
+Write-up: https://nonceworks.com/notes/relayer-nonce-consumed-externally-817.html
+
 This runs the unmodified `openzeppelin/openzeppelin-relayer:v1.8.0` image against anvil through a small proxy that makes the read inconsistency of a load-balanced provider deterministic: for `HIDE_SECS` after a receipt first exists on anvil, the proxy answers `null` to `eth_getTransactionReceipt` for that hash; every other call, including `eth_getTransactionCount`, passes through unchanged.
 
 ## What it shows (run of 2026-10-06, UTC)
